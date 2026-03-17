@@ -1,0 +1,55 @@
+.cursor-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    /* Let clicks pass through */
+    z-index: 10000;
+}
+
+/* Main glowing dot */
+.custom-cursor-main {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    /* Creates a cool readable contrast no matter background */
+}
+
+/* Trailing wave dots */
+.cursor-trail {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    transform: translate(-50%, -50%);
+    /* Center on coordinate */
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+/* Breaking star particles */
+.cursor-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: #ffffff;
+    pointer-events: none;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8), 0 0 20px 5px var(--accent-color);
+}
+
+/* Hide default cursor on larger screens when custom cursor is active */
+@media (min-width: 768px) {
+    /* The custom cursor will be active, but the system cursor will remain visible */
+}
+
+/* Hide the custom cursor effects on mobile devices */
+@media (max-width: 768px) {
+    .cursor-wrapper {
+        display: none !important;
+    }
+}

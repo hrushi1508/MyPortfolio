@@ -1,0 +1,75 @@
+.education-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 2rem;
+}
+
+.timeline-block {
+    padding: 2.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 0 20px 20px 0;
+    transition: background 0.3s ease;
+}
+
+.timeline-block:hover {
+    background: rgba(40, 40, 42, 0.7);
+}
+
+.year-badge {
+    font-family: var(--font-apple);
+    font-weight: 600;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+
+.timeline-info h3 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-info h4 {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.timeline-info .score {
+    color: var(--accent-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+    .timeline-block {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem;
+    }
+}
+
+/* Light Theme Overrides */
+body.light-theme .timeline-block:hover {
+    background: rgba(245, 245, 247, 0.8);
+}
+
+body.light-theme .year-badge {
+    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .timeline-info h3 {
+    color: var(--text-primary);
+}

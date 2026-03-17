@@ -1,0 +1,192 @@
+.home-page {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding: 0;
+    /* Remove default padding from page-container if any to ensure image hits edge */
+    width: 100%;
+    min-height: 100vh;
+}
+
+.home-profile-side {
+    width: 25%;
+    /* 1/4th of the page */
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.home-content-side {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 5vw;
+    z-index: 10;
+}
+
+.home-content {
+    text-align: center;
+    z-index: 10;
+    max-width: 800px;
+    margin-left: -50%;
+    margin-top: 250px;
+}
+
+.greeting {
+    font-size: 1rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.name {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ffffff 30%, #a1a1a6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: left;
+}
+
+.apple-subheading {
+    text-align: left;
+}
+
+.cta-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Subtle background glow (simulating Apple hardware accent reflection) */
+.subtle-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 60vw;
+    max-width: 600px;
+    max-height: 600px;
+    background: radial-gradient(circle, rgba(41, 151, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.profile-container {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    justify-content: right;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    /* Adjust if face is off-center */
+    border-radius: 0;
+    display: block;
+    filter: contrast(1.1) brightness(0.9);
+    /* Subtle tuning to match dark bg */
+}
+
+/* Blend the image into the background from the right edge */
+.profile-blend-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right,
+            transparent 50%,
+            var(--bg-color, #0a0a0a) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .home-page {
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 4rem;
+    }
+
+    .home-content {
+        margin-left: 0;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1.5rem;
+    }
+
+    .profile-container {
+        position: relative;
+        left: 0;
+        width: 250px;
+        height: 250px;
+        margin-bottom: 2rem;
+        border-radius: 50%;
+        overflow: hidden;
+        justify-content: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .profile-image {
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .name {
+        text-align: center;
+        font-size: clamp(3rem, 10vw, 4rem);
+    }
+
+    .apple-subheading {
+        text-align: center;
+    }
+
+    .cta-container {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* Light Theme Overrides */
+body.light-theme .name {
+    background: linear-gradient(135deg, #1d1d1f 30%, #555555 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.light-theme .subtle-glow {
+    background: radial-gradient(circle, rgba(41, 151, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+body.light-theme .profile-image {
+    filter: contrast(1.0) brightness(1.0);
+}

@@ -1,0 +1,84 @@
+.contact-wrapper {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-card {
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2.5rem;
+    transition: background 0.3s ease;
+}
+
+.contact-row:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.contact-row .label {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.contact-row .value {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.contact-divider {
+    height: 1px;
+    background: var(--card-border);
+    margin: 0 2.5rem;
+}
+
+.contact-footer {
+    padding: 2.5rem;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.minimal-footer {
+    margin-top: 6rem;
+    text-align: center;
+}
+
+.minimal-footer p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    letter-spacing: -0.01em;
+}
+
+@media (max-width: 600px) {
+    .contact-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 1.5rem;
+    }
+}
+
+/* Light Theme Overrides */
+body.light-theme .contact-row:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+body.light-theme .contact-footer {
+    background: rgba(0, 0, 0, 0.03);
+}
